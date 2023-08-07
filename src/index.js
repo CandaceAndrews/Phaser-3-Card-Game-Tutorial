@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import Game from "./scenes/game";
 
-class MyGame extends Phaser.Scenef
+class MyGame extends Phaser.Scene
 {
     constructor ()
     {

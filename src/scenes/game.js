@@ -13,6 +13,15 @@ export default class Game extends Phaser.Scene {
     }
 
     create() {
+
+        let self = this;
+        this.card = this.add.image(300, 300, 'cyanCardFront').setScale(0.3, 0.3).setInteractive();
+        this.input.setDraggable(this.card);
+
+        this.dealCards = () => {
+            
+        }
+
         this.dealText = this.add.text(75, 350, ['DEAL CARDS']).setFontSize(18).setFontFamily('Trebuchet MS').setColor('#00ffff').setInteractive();
     }
     
