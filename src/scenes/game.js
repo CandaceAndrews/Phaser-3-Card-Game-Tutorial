@@ -13,7 +13,7 @@ export default class Game extends Phaser.Scene {
     }
 
     create() {
-
+        
         let self = this;
 
 		this.card = this.add.image(300, 300, 'cyanCardFront').setScale(0.3, 0.3).setInteractive();
@@ -23,6 +23,7 @@ export default class Game extends Phaser.Scene {
         
         }
 
+        this.dealText = this.add.text(75, 350, ['DEAL CARDS']).setFontSize(18).setFontFamily('Trebuchet MS').setColor('#00ffff').setInteractive();
 		this.dealText.on('pointerdown', function () {
             self.dealCards();
         })
@@ -39,8 +40,6 @@ export default class Game extends Phaser.Scene {
             gameObject.x = dragX;
             gameObject.y = dragY;
         })
-
-        this.dealText = this.add.text(75, 350, ['DEAL CARDS']).setFontSize(18).setFontFamily('Trebuchet MS').setColor('#00ffff').setInteractive();
     }
     
     update() {
