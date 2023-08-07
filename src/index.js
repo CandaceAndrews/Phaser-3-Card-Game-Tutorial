@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import logoImg from './assets/logo.png';
+import Game from "./scenes/game";
 
 class MyGame extends Phaser.Scene
 {
@@ -31,8 +31,8 @@ class MyGame extends Phaser.Scene
 const config = {
     type: Phaser.AUTO,
     parent: 'phaser-example',
-    width: 800,
-    height: 600,
+    width: 1280,
+    height: 780,
     scene: MyGame
 };
 
