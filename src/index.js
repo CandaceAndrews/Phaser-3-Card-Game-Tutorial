@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import Game from "./scenes/game";
 
-class MyGame extends Phaser.Scene
+class MyGame extends Phaser.Scenef
 {
     constructor ()
     {
@@ -33,7 +33,9 @@ const config = {
     parent: 'phaser-example',
     width: 1280,
     height: 780,
-    scene: MyGame
+    scene: [
+        Game
+    ]
 };
 
 const game = new Phaser.Game(config);
