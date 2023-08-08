@@ -10,13 +10,15 @@ export default class Game extends Phaser.Scene {
         this.load.image('cyanCardBack', 'src/assets/CyanCardBack.png');
         this.load.image('magentaCardFront', 'src/assets/MagentaCardFront.png');
         this.load.image('magentaCardBack', 'src/assets/MagentaCardBack.png');
+        this.load.image('megaTrex', 'src/assets/mega_trex_A.gif');
     }
 
     create() {
         
         let self = this;
 
-		this.card = this.add.image(300, 300, 'cyanCardFront').setScale(0.3, 0.3).setInteractive();
+		this.card = this.add.image(300, 300, 'megaTrex').setScale(0.5, 0.5).setInteractive();
+        // this.card = this.add.image(300, 300, 'cyanCardFront').setScale(0.3, 0.3).setInteractive();
         this.input.setDraggable(this.card);
 
 		this.dealCards = () => {
