@@ -66,9 +66,15 @@ export default class Game extends Phaser.Scene {
             gameObject.x = dragX;
             gameObject.y = dragY;
         })
+
+        this.input.on('drop', function (pointer, gameObject, dropZone) {
+            dropZone.data.values.cards++;
+            gameObject.x = (dropZone.x - 350) + (dropZone.data.values.cards * 50);
+            gameObject.y = dropZone.y;
+            gameObject.disableInteractive();
+        })
     }
-    
     update() {
-    
+
     }
 }
