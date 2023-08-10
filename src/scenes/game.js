@@ -1,4 +1,5 @@
 import Card from '../helpers/card';
+import Zone from '../helpers/zone';
 
 export default class Game extends Phaser.Scene {
     constructor() {
@@ -18,6 +19,11 @@ export default class Game extends Phaser.Scene {
     create() {
         
         let self = this;
+
+        this.zone = new Zone(this);
+        this.dropZone = this.zone.renderZone();
+        this.outline = this.zone.renderOutline(this.dropZone);
+
 
 		this.card = this.add.image(300, 300, 'megaTrex').setScale(0.5, 0.5).setInteractive();
         // this.card = this.add.image(300, 300, 'cyanCardFront').setScale(0.3, 0.3).setInteractive();
