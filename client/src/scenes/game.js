@@ -31,9 +31,10 @@ export default class Game extends Phaser.Scene {
         this.input.setDraggable(this.card);
 
 
-        this.socket = io('http://localhost:3000');
-        this.socket.on('connect', function() {
-            console.log('Connected!');
+		this.socket = io('http://localhost:3000');
+
+        this.socket.on('connect', function () {
+        	console.log('Connected!');
         });
 
 		this.dealCards = () => {
