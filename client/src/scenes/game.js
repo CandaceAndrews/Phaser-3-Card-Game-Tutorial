@@ -1,5 +1,6 @@
 import Card from '../helpers/card';
 import Zone from '../helpers/zone';
+import io from 'socket.io-client';
 
 export default class Game extends Phaser.Scene {
     constructor() {
@@ -28,6 +29,12 @@ export default class Game extends Phaser.Scene {
 		this.card = this.add.image(300, 300, 'megaTrex').setScale(0.5, 0.5).setInteractive();
         // this.card = this.add.image(300, 300, 'cyanCardFront').setScale(0.3, 0.3).setInteractive();
         this.input.setDraggable(this.card);
+
+
+        this.socket = io('http://localhost:3000');
+        this.socket.on('connect', function() {
+            console.log('Connected!');
+        });
 
 		this.dealCards = () => {
         	for (let i = 0; i < 5; i++) {
