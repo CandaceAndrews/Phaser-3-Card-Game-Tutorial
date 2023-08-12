@@ -1,6 +1,7 @@
 import Card from '../helpers/card';
 import Zone from '../helpers/zone';
 import io from 'socket.io-client';
+import Dealer from '../helpers/dealer';
 
 export default class Game extends Phaser.Scene {
     constructor() {
@@ -18,19 +19,17 @@ export default class Game extends Phaser.Scene {
     }
 
     create() {
-        
         let self = this;
-
         this.isPlayerA = false;
         this.opponentCards = [];
 
         this.zone = new Zone(this);
         this.dropZone = this.zone.renderZone();
         this.outline = this.zone.renderOutline(this.dropZone);
+        this.dealer = new Dealer(this);
 
-
+        // Trex
 		this.card = this.add.image(300, 300, 'megaTrex').setScale(0.5, 0.5).setInteractive();
-        // this.card = this.add.image(300, 300, 'cyanCardFront').setScale(0.3, 0.3).setInteractive();
         this.input.setDraggable(this.card);
 
 
@@ -44,9 +43,15 @@ export default class Game extends Phaser.Scene {
             self.isPlayerA = true;
         });
 
+        this.socket.on('dealCards', function () {
+            self.dealer.dealCards();
+            self.dealText.disableInteractive();
+        })
+
         this.dealText = this.add.text(75, 350, ['DEAL CARDS']).setFontSize(18).setFontFamily('Trebuchet MS').setColor('#00ffff').setInteractive();
-		this.dealText.on('pointerdown', function () {
-            self.dealCards();
+		
+        this.dealText.on('pointerdown', function () {
+            self.socket.emit("dealCards");
         })
 
         this.dealText.on('pointerover', function () {
