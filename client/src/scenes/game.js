@@ -44,13 +44,6 @@ export default class Game extends Phaser.Scene {
             self.isPlayerA = true;
         });
 
-		this.dealCards = () => {
-        	for (let i = 0; i < 5; i++) {
-                let playerCard = new Card(this);
-                playerCard.render(475 + (i * 100), 650, 'cyanCardFront');
-            }
-    	}
-
         this.dealText = this.add.text(75, 350, ['DEAL CARDS']).setFontSize(18).setFontFamily('Trebuchet MS').setColor('#00ffff').setInteractive();
 		this.dealText.on('pointerdown', function () {
             self.dealCards();
