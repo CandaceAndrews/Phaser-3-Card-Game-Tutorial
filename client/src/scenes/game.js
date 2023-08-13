@@ -16,6 +16,7 @@ export default class Game extends Phaser.Scene {
         this.load.image('magentaCardFront', 'src/assets/MagentaCardFront.png');
         this.load.image('magentaCardBack', 'src/assets/MagentaCardBack.png');
         this.load.image('megaTrex', 'src/assets/mega_trex_A.gif');
+        this.load.image('mermaid', 'src/assets/mermaid.png');
     }
 
     create() {
@@ -27,10 +28,6 @@ export default class Game extends Phaser.Scene {
         this.dropZone = this.zone.renderZone();
         this.outline = this.zone.renderOutline(this.dropZone);
         this.dealer = new Dealer(this);
-
-        // Trex
-		this.card = this.add.image(300, 300, 'megaTrex').setScale(0.5, 0.5).setInteractive();
-        this.input.setDraggable(this.card);
 
 
 		this.socket = io('http://localhost:3000');
