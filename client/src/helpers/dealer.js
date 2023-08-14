@@ -7,10 +7,10 @@ export default class Dealer {
             let opponentSprite;
             if (scene.isPlayerA) {
                 playerSprite = 'mermaid';
-                opponentSprite = 'magentaCardBack';
+                opponentSprite = 'trex';
             } else {
-                playerSprite = 'mermaid';
-                opponentSprite = 'cyanCardBack';
+                playerSprite = 'trex';
+                opponentSprite = 'mermaid';
             };
             for (let i = 0; i < 5; i++) {
                 let playerCard = new Card(scene);
